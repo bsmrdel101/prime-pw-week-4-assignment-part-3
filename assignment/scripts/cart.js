@@ -29,10 +29,29 @@ function full() {
   return itemCount;
 }
 
+function removeItem(item) {
+  let x = basket.indexOf(item);
+  basket.splice(x);
+
+  if (basket.length !== 0) {
+    console.log(`${item} was removed`);
+  } else {
+    return null;
+  }
+}
+
 console.log(`Basket is ${basket}`);
 console.log('Adding apples (expect true)', addItem('apples'));
 console.log('Adding bannanas (expect true)', addItem('bannanas'));
 console.log('Adding grapes (expect true)', addItem('grapes'));
+console.log('Adding oranges (expect true)', addItem('oranges'));
+console.log('Adding pears (expect true)', addItem('pears'));
+console.log('Adding watermelon (expect false)', addItem('watermelon'));
 console.log(`Basket is now ${basket}`);
 
+console.log('***** Listing Items *****');
+listItems();
+console.log('***** Removing Item *****');
+removeItem('pears');
+console.log('***** Listing Items Again *****');
 listItems();
